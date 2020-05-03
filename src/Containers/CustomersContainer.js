@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import AppFrame from '../Components/AppFrame';
 import CustomersList from '../Components/CustomersList';
 import CustomerActions from '../Components/CustomerActions';
-import { fetchCustomers } from './../Actions/fetchCustomers';
+import { fetchCustomers } from '../Actions/fetchCustomers';
+import { getCustomers } from '../Selectors/Custom';
 
 class CustomersContainer extends Component {
 
@@ -62,6 +63,11 @@ CustomersContainer.defaultProps = {
             "age": 31
         }
     ]
+    //customers: []
 };
 
-export default withRouter(connect(null, { fetchCustomers })(CustomersContainer));
+const mapStateToProps = state => ({
+    customers: getCustomers(state)
+})
+
+export default withRouter(connect(mapStateToProps, { fetchCustomers })(CustomersContainer));
