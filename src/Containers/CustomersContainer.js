@@ -48,22 +48,7 @@ CustomersContainer.propTypes = {
 };
 
 CustomersContainer.defaultProps = {
-    customers: [
-        {
-            "dni": "27000000",
-            "name": "Juan Perez",
-            "age": 37
-        },{
-            "dni": "30000000",
-            "name": "José Juarez",
-            "age": 38
-        },{
-            "dni": "35000000",
-            "name": "Juan Hernandez",
-            "age": 31
-        }
-    ]
-    //customers: []
+    customers: []
 };
 
 const mapStateToProps = state => ({

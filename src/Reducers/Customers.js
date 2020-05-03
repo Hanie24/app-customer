@@ -5,6 +5,6 @@ import { FETCH_CUSTOMERS } from '../Constant/index';
     [FETCH_CUSTOMERS]: state => state,
 }, {});*/
 
-export const Customers = handleActions({
+export const customers = handleActions({
     [FETCH_CUSTOMERS]: (state, action) => [ ...action.payload]
 }, []);
