@@ -64,4 +64,4 @@ CustomersContainer.defaultProps = {
     ]
 };
 
-export default withRouter(connect(null, {fetchCustomers})(CustomersContainer));
+export default withRouter(connect(null, { fetchCustomers })(CustomersContainer));
