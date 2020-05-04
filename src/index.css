@@ -29,15 +29,19 @@ code {
   background-color: white;
   min-width: 100px;
   height: 30px;
-  margin: 5px 0;
+  margin: 5px 25px 0 0;
 }
 
 .customer-list-item .field {
   width: 160px;
   margin: 1px;
   padding: 4px; 
-  background-color: #eee;
+  background-color: white;
   display: inline-block;
+}
+
+.customer-list-item .field a{
+  color: black;
 }
 
 .error{
@@ -57,3 +61,4 @@ code {
 input{
   display: block;
 }
+

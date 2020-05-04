@@ -1,17 +1,22 @@
 {
   "customers": [
     {
-        "dni": "27000000",
-        "name": "Juan Perez",
-        "age": 37
-    },{
-        "dni": "30000000",
-        "name": "Pepe Juarez",
-        "age": 38
-    },{
-        "dni": "35000000",
-        "name": "Antonio Hernandez",
-        "age": 31
+      "id": "27000000",
+      "dni": "27000000",
+      "name": "Francisco Peréz",
+      "age": 37
+    },
+    {
+      "id": "30000000",
+      "dni": "30000000",
+      "name": "Pepe Juarez",
+      "age": 38
+    },
+    {
+      "id": "35000000",
+      "dni": "35000000",
+      "name": "Antonio Hernandez",
+      "age": 31
     }
   ],
   "posts": [
