@@ -45,3 +45,15 @@ code {
   font-size: 10px;
   display: block;
 }
+
+.customer-edit{
+  margin: 15px 0 20px;
+}
+
+.customer-edit div{
+  padding-bottom: 5px 
+}
+
+input{
+  display: block;
+}
