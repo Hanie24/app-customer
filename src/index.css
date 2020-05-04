@@ -39,3 +39,9 @@ code {
   background-color: #eee;
   display: inline-block;
 }
+
+.error{
+  color: red;
+  font-size: 10px;
+  display: block;
+}

@@ -1,7 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
-import { connect } from 'react-redux';
+import { setPropsAsInitial } from '../Helpers/setPropsAsInitial';
+
+const isRequired = value => (
+    !value && 'Este campo es requerido'
+);
+
+const MyField = ({input, meta}) => (
+    <div>
+        <input {...input} type="text" />
+        {
+            meta.touched && meta.error && <span className="error">{meta.error}</span>
+        }
+    </div>
+);
 
 const CustomerEdit = ({ name, dni, age }) => {
     return (
@@ -10,11 +23,20 @@ const CustomerEdit = ({ name, dni, age }) => {
             <form>
                 <div>
                     <label htmlFor="name">Nombre:</label>
-                    <Field name="name" component="input" type="text"></Field>
+                    <Field 
+                        name="name" 
+                        component={MyField}
+                        type="text"
+                        validate={isRequired}
+                    />
                 </div>
                 <div>
                     <label htmlFor="dni">Dni:</label>
-                    <Field name="dni" component="input" type="text"></Field>
+                    <Field 
+                        name="dni" 
+                        component={MyField}
+                        validate={isRequired} 
+                    />
                 </div>
                 <div>
                     <label htmlFor="age">Edad:</label>
@@ -33,5 +55,4 @@ CustomerEdit.propTypes = {
 
 const CustomerEditForm = reduxForm({ form: 'CustomerEdit'})(CustomerEdit);
 
-export default connect(
-    (state, props) => ( { initialValues: props }))(CustomerEditForm);
+export default setPropsAsInitial(CustomerEditForm);
