@@ -15,8 +15,32 @@
     {
       "id": "35000000",
       "dni": "35000000",
-      "name": "Antonio Hernandez",
+      "name": "Antonio Torres",
       "age": 30
+    },
+    {
+      "name": "Roberto Carrillo",
+      "dni": "3000050",
+      "age": 40,
+      "id": "ECDui0n"
+    },
+    {
+      "name": "Issac Jimenéz",
+      "dni": "3040332",
+      "age": 28,
+      "id": "tvYD22e"
+    },
+    {
+      "name": "Ana Camacho",
+      "dni": "304909210",
+      "age": 26,
+      "id": "VL1mFC4"
+    },
+    {
+      "name": "Dulce Rosado",
+      "dni": "0343240",
+      "age": 50,
+      "id": "hCXYQex"
     }
   ],
   "posts": [
