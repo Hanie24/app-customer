@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { reduxForm, Field } from 'redux-form';
 import { setPropsAsInitial } from '../Helpers/setPropsAsInitial';
 import CustomerActions from '../Components/CustomerActions';
+import { Prompt } from 'react-router-dom'
 
 const isRequired = value => (
     !value && 'Este campo es requerido'
@@ -37,9 +38,10 @@ const MyField = ({input, meta, type, label, name}) => (
     </div>
 );
 
+const toNumber = value => value && Number(value);
 
-// submitting, handleSubmit son propiedades que provee redux-form
-const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
+// submitting, handleSubmit, pristine, submitSucceeded son propiedades que provee redux-form
+const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack, pristine, submitSucceeded }) => {
     return (
         <div className="customer-edit">
             <h2>Edición de el cliente </h2>
@@ -63,11 +65,16 @@ const CustomerEdit = ({ name, dni, age, handleSubmit, submitting, onBack }) => {
                     type="number"
                     validate={[isNumber, isRequired]}
                     label='Edad:'
+                    parse={toNumber}
                 />
                 <CustomerActions>
-                    <button type='submit' disabled={submitting}>Aceptar</button>
-                    <button onClick={onBack}>Cancelar</button>
+                    <button type='submit' disabled={pristine || submitting}>Aceptar</button>
+                    <button type="button" disabled={submitting} onClick={onBack}>Cancelar</button>
                 </CustomerActions>
+                <Prompt 
+                    when={!pristine && !submitSucceeded}
+                    message="Se perderán los datos"
+                />
             </form>
         </div>
     );

@@ -3,20 +3,20 @@
     {
       "id": "27000000",
       "dni": "27000000",
-      "name": "Francisco Peréz",
+      "name": "Francisco Goméz",
       "age": 37
     },
     {
       "id": "30000000",
       "dni": "30000000",
-      "name": "Pepe Juarez",
-      "age": 38
+      "name": "José Juaréz",
+      "age": 40
     },
     {
       "id": "35000000",
       "dni": "35000000",
       "name": "Antonio Hernandez",
-      "age": 31
+      "age": 30
     }
   ],
   "posts": [
