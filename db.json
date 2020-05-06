@@ -1,30 +1,6 @@
 {
   "customers": [
     {
-      "id": "27000000",
-      "dni": "27000000",
-      "name": "Francisco Goméz",
-      "age": 37
-    },
-    {
-      "id": "30000000",
-      "dni": "30000000",
-      "name": "José Juaréz",
-      "age": 40
-    },
-    {
-      "id": "35000000",
-      "dni": "35000000",
-      "name": "Antonio Torres",
-      "age": 30
-    },
-    {
-      "name": "Roberto Carrillo",
-      "dni": "3000050",
-      "age": 40,
-      "id": "ECDui0n"
-    },
-    {
       "name": "Issac Jimenéz",
       "dni": "3040332",
       "age": 28,
@@ -35,12 +11,6 @@
       "dni": "304909210",
       "age": 26,
       "id": "VL1mFC4"
-    },
-    {
-      "name": "Dulce Rosado",
-      "dni": "0343240",
-      "age": 50,
-      "id": "hCXYQex"
     }
   ],
   "posts": [

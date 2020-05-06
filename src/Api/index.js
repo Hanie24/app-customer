@@ -13,3 +13,12 @@ export const apiPost = (url, obj) => () =>
     body: JSON.stringify(obj),
     headers: new Headers({ 'Content-type': 'application/json'})
 }).then( v => v.json())
+
+export const apiDelete = (url, id) => () =>
+    fetch(`${url}/${id}`, {
+    method: 'DELETE', 
+    headers: new Headers({ 'Content-type': 'application/json'})
+}).then( v => v.json())
+.then(r => {
+    return id;
+});

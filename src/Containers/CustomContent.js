@@ -8,6 +8,7 @@ import CustomerEdit from './../Components/CustomerEdit';
 import CustomerData from './../Components/CustomerData';
 import {fetchCustomers} from './../Actions/fetchCustomers';
 import { updateCustomer } from './../Actions/updateCustomers';
+import { deleteCustomer } from './../Actions/deleteCustomers';
 
 class CustomContent extends Component {
 
@@ -31,22 +32,37 @@ class CustomContent extends Component {
         this.props.history.goBack();
     }
 
+    handleOnDelete = id => {
+        this.props.deleteCustomer(id).then(v => {
+            this.props.history.goBack();
+        });
+    }
+
+    renderCustomerControl = (isEdit, isDelete) => {
+        if(this.props.customer){
+            const CustomerControl = isEdit ? CustomerEdit : CustomerData;
+            return <CustomerControl { ...this.props.customer} 
+                onSubmit={this.handleSubmit}
+                onSubmitSuccess={this.handleOnSubmitSuccess}
+                onBack={this.handleOnBack}
+                isDeleteAllow={!!isDelete}
+                onDelete={this.handleOnDelete}
+            /> 
+        }
+
+        return null;
+    }
+
     renderBodyClient = () => (
-        <Route 
-            path="/customers/:dni/editar"
-            children={
-                ({ match }) => {
-                    const CustomerControl = match ? CustomerEdit : CustomerData;
-                    return <CustomerControl { ...this.props.customer} 
-                        onSubmit={this.handleSubmit}
-                        onSubmitSuccess={this.handleOnSubmitSuccess}
-                        onBack={this.handleOnBack}
-                    /> 
-                }
-            }
+        <Route path="/customers/:dni/eliminar" children={(
+                { match: isEdit }) => (
+                    <Route path="/customers/:dni/editar" children={(
+                        {match: isDelete}) => (this.renderCustomerControl(isDelete, isEdit))}
+                    />
+                )
+            }           
         />
     )
-    //<p>Datos del client "{this.props.customer.name}" </p>
 
     render() {
         return (
@@ -65,6 +81,7 @@ CustomContent.propTypes = {
     customer: PropTypes.object,
     fetchCustomers: PropTypes.func.isRequired,
     updateCustomer: PropTypes.func.isRequired,
+    deleteCustomer: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
@@ -73,5 +90,6 @@ const mapStateToProps = (state, props) => ({
 
 export default withRouter(connect(mapStateToProps, {
     fetchCustomers,
-    updateCustomer
+    updateCustomer,
+    deleteCustomer
 })(CustomContent));
